@@ -48,7 +48,6 @@ public class Employee {
 		super();
 		this.id = id;
 		this.name = name;
-		this.work = work;
 		this.workname = work.name();
 		this.salary = work.getSalary();
 	}
@@ -94,5 +93,13 @@ public class Employee {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [work=" + work + ", id=" + id + ", name=" + name + ", workname=" + workname + ", salary="
+				+ salary + "]";
+	}
+	
+	
 
 }
