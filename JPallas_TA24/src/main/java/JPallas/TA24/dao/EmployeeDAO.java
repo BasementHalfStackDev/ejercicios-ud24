@@ -8,6 +8,6 @@ import JPallas.TA24.dto.Employee;
 
 public interface EmployeeDAO extends JpaRepository<Employee, Long> {
 	
-	public List<Employee> findByWork(String work);
+	public List<Employee> findEmployeesByWork(String work);
 
 }
