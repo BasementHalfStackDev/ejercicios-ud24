@@ -27,14 +27,15 @@ public class EmployeeController {
 		return employeeService.listEmployees();
 	}
 
-	@GetMapping("/employees/work/{work}")
-	public List<Employee> listEmployeesByWork(@PathVariable(name = "work") String work) {
-		return employeeService.listEmployeesByWork(work);
+	@GetMapping("/employees/work/{workname}")
+	public List<Employee> listEmployeesByWork(@PathVariable(name = "workname") String workname) {
+		return employeeService.listEmployeesByWork(workname);
 	}
 
 	@PostMapping("/employees")
 	public Employee saveEmployee(@RequestBody Employee employee) {
-		return employeeService.saveEmployee(employee);
+		Employee newEmployee = new Employee(employee.getId(), employee.getName(), employee.getWork());
+		return employeeService.saveEmployee(newEmployee);
 	}
 
 	@GetMapping("/employees/{id}")
@@ -50,12 +51,8 @@ public class EmployeeController {
 
 	@PutMapping("/employees/{id}")
 	public Employee updateEmployee(@PathVariable(name = "id") Long id, @RequestBody Employee employee) {
-		Employee selectedEmployee = new Employee();
+		Employee selectedEmployee = new Employee(id, employee.getName(), employee.getWork());
 		Employee updatedEmployee = new Employee();
-
-		selectedEmployee = employeeService.getEmployeeById(id);
-		selectedEmployee.setName(employee.getName());
-		selectedEmployee.setWork(employee.getWork());
 
 		updatedEmployee = employeeService.updateEmployee(selectedEmployee);
 

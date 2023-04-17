@@ -1,14 +1,14 @@
 DROP table IF EXISTS employee;
 
 create table employee(
-	id int auto_increment,
+	id int auto_increment primary key,
 	name varchar(250),
 	work varchar(250),
-	salary int
+	salary decimal(10,2)
 );
 
-insert into employee (name, work,salary)values('Josep','Programmer', 2500);
-insert into employee (name, work,salary)values('Rose','Tester', 1500);
-insert into employee (name, work,salary)values('Marta','Administrator', 1800);
-insert into employee (name, work,salary)values('Marc','Programmer', 2500);
-insert into employee (name, work,salary)values('Filip','Tester', 1500);
+insert into employee (name, work, salary)values('Josep','PROGRAMMER', 2500.00);
+insert into employee (name, work, salary)values('Rose','TESTER', 1500.00);
+insert into employee (name, work, salary)values('Marta','ADMINISTRATOR', 1800.00);
+insert into employee (name, work, salary)values('Marc','PROGRAMMER', 2500.00);
+insert into employee (name, work, salary)values('Filip','TESTER', 1500.00);

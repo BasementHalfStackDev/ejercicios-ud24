@@ -3,7 +3,6 @@ package JPallas.TA24.service;
 import java.util.List;
 
 import JPallas.TA24.dto.Employee;
-
 public interface EmployeeServiceInterface {
 	
 	public List<Employee> listEmployees();
